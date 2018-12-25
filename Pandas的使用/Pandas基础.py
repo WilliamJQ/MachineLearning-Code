@@ -50,6 +50,87 @@ data = {
 s = pd.Series(data)
 # print(s)
 
+data = {
+    'a': 0,
+    'b': 1,
+    'c': 2
+}
+
+s = pd.Series(data,index=['b', 'a', 'c', 'f'])
+# print(s)
+
+
+# 1.1.4 从标量创建一个系列
+s = pd.Series(5,index=['a', 'b', 'c', 'd'])
+# print(s)
+
+# 1.1.5 从具有位置的系列中访问数据
+s = pd.Series([1, 2, 3, 4, 5], index=['a', 'b', 'c', 'd', 'e'])
+# print(s['a'])
+
+
+# 使用数字索引创建的系列，如果新的数字索引和默认的[0,1,2,...]不同则会将新的数字索引覆盖默认的数字索引，
+# 即不能使用默认数字索引来访问元素。如果新的索引是字符索引，那么除了使用新索引访问还是可以使用默认数字索引来访问元素。
+data = np.array(['a', 'b', 'c', 'd'])
+s = pd.Series(data, index=[100, 101, 102, 103])
+# print(s[100])
+
+# 1.1.6 检索系列中的前三个元素。
+# 如果a:被插入到其前面，则将从该索引向前的所有项目被提取。
+# 如果使用两个参数(使用它们之间)，两个索引之间的项目(不包括停止索引)。
+s = pd.Series([1, 2, 3, 4, 5], index=['a', 'b', 'c', 'd', 'e'])
+# print(s[:3])
+
+# 1.1.7 检索最后三个元素
+# print(s[-3:])
+
+# 1.1.8 打印所有元素
+# print(s[:])
+
+
+# 1.2 数据帧
+
+# pandas中的DataFrame可以使用以下构造函数创建
+# pandas.DataFrame( data, index, columns, dtype, copy)
+# 1 data	数据采取各种形式，如:ndarray，series，map，lists，dict，constant和另一个DataFrame。
+# 2	index	对于行标签，要用于结果帧的索引是可选缺省值 - np.arrange(n)，如果没有传递索引值。
+# 3	columns	对于列标签，可选的默认语法是 - np.arange(n)。 这只有在没有索引传递的情况下才是这样。
+# 4	dtype	每列的数据类型。
+# 5	copy	如果默认值为False，则此命令(或任何它)用于复制数据。
+
+
+# Pandas数据帧(DataFrame)可以使用各种输入创建，如
+# 列表
+# 字典
+# 系列
+# Numpy ndarrays
+# 另一个数据帧(DataFrame)
+
+# 1.2.1 创建一个空的DataFrame
+df = pd.DataFrame()
+# print(df)
+
+# 从列表创建DataFrame
+data = [1, 2, 3, 4, 5, 6]
+df = pd.DataFrame(data)
+# print(df)
+
+
+data = [['Alex', 10, 90], ['John', 20, 100], ['Mary', 30, 98]]
+df = pd.DataFrame(data, index=['a', 'b', 'c'], columns=['name', 'age', 'grade'], dtype=float)
+# print(df)
+
+data = {
+    'name': ['Alex', 'John', 'Mary'],
+    'Age': [18, 19, 20],
+}
+df = pd.DataFrame(data)
+print(df)
+
+
+
+
+
 
 
 
